@@ -8,12 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="02springdata-demo" />
         <module name="ms-registry" />
+        <module name="ms-diners" />
         <module name="ms-gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="02springdata-demo" target="1.8" />
       <module name="food-social-contact-parent" target="8" />
+      <module name="ms-diners" target="8" />
       <module name="ms-gateway" target="8" />
       <module name="ms-registry" target="8" />
     </bytecodeTargetLevel>

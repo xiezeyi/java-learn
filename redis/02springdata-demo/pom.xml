@@ -31,11 +31,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!--lettuce-->
-        <!--<dependency>
+        <!--lettuce 替代jedis连接池-->
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
-        </dependency>-->
+        </dependency>
     </dependencies>
 
     <build>

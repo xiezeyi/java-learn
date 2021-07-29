@@ -11,6 +11,7 @@
     <modules>
         <module>ms-registry</module>
         <module>ms-gateway</module>
+        <module>ms-diners</module>
     </modules>
 
     <properties>

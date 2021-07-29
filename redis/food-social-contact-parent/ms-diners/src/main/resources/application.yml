@@ -1,0 +1,15 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: ms-diners
+# 配置 Eureka Server 注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/
+  # 在注册中心注册时候通过ip地址来注册
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}

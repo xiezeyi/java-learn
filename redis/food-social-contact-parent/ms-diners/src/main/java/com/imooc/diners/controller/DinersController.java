@@ -1,6 +1,7 @@
 package com.imooc.diners.controller;
 
 import com.imooc.comons.model.domain.domain.ResultInfo;
+import com.imooc.comons.utils.ResultInfoUtil;
 import com.imooc.diners.service.DinersService;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,12 @@ public class DinersController {
 
     @Resource
     private HttpServletRequest request;
+
+    @GetMapping("checkPhone")
+    public ResultInfo checkPhone(String phone) {
+        dinersService.checkPhoneIsRegistered(phone);
+        return ResultInfoUtil.buildSuccess(request.getServletPath());
+    }
 
     @GetMapping("signin")
     public ResultInfo signIn(String account, String password) {

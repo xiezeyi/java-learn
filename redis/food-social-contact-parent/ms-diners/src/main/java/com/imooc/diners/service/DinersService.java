@@ -3,10 +3,12 @@ package com.imooc.diners.service;
 import cn.hutool.core.bean.BeanUtil;
 import com.imooc.comons.constant.ApiConstant;
 import com.imooc.comons.model.domain.domain.ResultInfo;
+import com.imooc.comons.model.domain.pojo.Diners;
 import com.imooc.comons.utils.AssertUtil;
 import com.imooc.comons.utils.ResultInfoUtil;
 import com.imooc.diners.config.OAuth2ClientConfiguration;
 import com.imooc.diners.domain.OAuthDinerInfo;
+import com.imooc.diners.mapper.DinersMapper;
 import com.imooc.diners.vo.LoginDinerInfo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,6 +38,19 @@ public class DinersService {
     private  String oauthServerName;
     @Resource
     private OAuth2ClientConfiguration oAuth2ClientConfiguration;
+    @Resource
+    private DinersMapper dinersMapper;
+    /**
+     * 校验手机号是否注册
+     * @param phone
+     */
+    public void checkPhoneIsRegistered(String phone) {
+        AssertUtil.isNotEmpty(phone,"手机号不能为空");
+        Diners diners = dinersMapper.selectByPhone(phone);
+        AssertUtil.isTrue(diners==null,"该手机号未注册");
+        AssertUtil.isTrue(diners.getIsValid()==0,"该用户已锁定，请先解锁/联系管理员");
+
+    }
 
     /**
      * 登录

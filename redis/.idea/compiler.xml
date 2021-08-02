@@ -2,11 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="02springdata-demo" />
+        <module name="ms-oauth2-server" />
         <module name="ms-registry" />
         <module name="ms-diners" />
         <module name="commons" />
@@ -19,6 +21,7 @@
       <module name="food-social-contact-parent" target="8" />
       <module name="ms-diners" target="8" />
       <module name="ms-gateway" target="8" />
+      <module name="ms-oauth2-server" target="8" />
       <module name="ms-registry" target="8" />
     </bytecodeTargetLevel>
   </component>

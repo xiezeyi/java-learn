@@ -1,7 +1,7 @@
 package com.imooc.comons.utils;
 
 import com.imooc.comons.constant.ApiConstant;
-import com.imooc.comons.model.domain.ResultInfo;
+import com.imooc.comons.model.domain.domain.ResultInfo;
 
 /**
  * @program: redis

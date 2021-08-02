@@ -1,8 +1,10 @@
 package com.imooc.oauth2.server.service;
 
+import com.imooc.comons.model.domain.domain.SignInIdentity;
 import com.imooc.comons.model.domain.pojo.Diners;
 import com.imooc.comons.utils.AssertUtil;
 import com.imooc.oauth2.server.mapper.DinersMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -38,7 +40,13 @@ public class UserService implements UserDetailsService {
         if (diners == null) {
             throw new UsernameNotFoundException("用户名或密码错误，请重新输入");
         }
-        return new User(username,diners.getPassword(),
-                AuthorityUtils.commaSeparatedStringToAuthorityList(diners.getRoles()));
+        // 初始化登录认证对象
+        SignInIdentity signInIdentity = new SignInIdentity();
+        // 拷贝属性
+        BeanUtils.copyProperties(diners,signInIdentity);
+//        return new User(username,diners.getPassword(),
+//                AuthorityUtils.commaSeparatedStringToAuthorityList(diners.getRoles()));
+        //重构
+        return signInIdentity;
     }
 }

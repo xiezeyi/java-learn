@@ -9,7 +9,7 @@ import lombok.Setter;
 
 /**
  * @program: redis
- * @description: 食客实体类
+ * @description: 代金券订单信息
  * @author: 谢泽毅
  * @create: 2021-08-03 19:52
  **/

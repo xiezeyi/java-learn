@@ -6,6 +6,7 @@ import com.imooc.comons.model.domain.pojo.SeckillVouchers;
 import com.imooc.comons.utils.ResultInfoUtil;
 import com.imooc.seckill.service.SeckillService;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,11 +32,11 @@ public class SeckillController {
      * @param access_token
      * @return
      */
-//    @PostMapping("{voucherId}")
-//    public ResultInfo<String> doSeckill(@PathVariable Integer voucherId, String access_token) {
-//        ResultInfo resultInfo = seckillService.doSeckill(voucherId, access_token, request.getServletPath());
-//        return resultInfo;
-//    }
+    @PostMapping("{voucherId}")
+    public ResultInfo<String> doSeckill(@PathVariable Integer voucherId, String access_token) {
+        ResultInfo resultInfo = seckillService.doSeckill(voucherId, access_token, request.getServletPath());
+        return resultInfo;
+    }
 
     /**
      * 新增秒杀活动

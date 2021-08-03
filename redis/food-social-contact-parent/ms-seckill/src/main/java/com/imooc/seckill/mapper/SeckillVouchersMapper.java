@@ -20,4 +20,9 @@ public interface SeckillVouchersMapper {
             " from t_seckill_vouchers where fk_voucher_id = #{voucherId}")
     SeckillVouchers selectVoucher(Integer voucherId);
 
+    // 减库存
+    @Update("update t_seckill_vouchers set amount = amount - 1 " +
+            " where id = #{seckillId}")
+    int stockDecrease(@Param("seckillId") int seckillId);
+
 }

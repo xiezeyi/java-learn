@@ -1,8 +1,11 @@
 package com.imooc.diners.service;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.digest.DigestUtil;
 import com.imooc.comons.constant.ApiConstant;
 import com.imooc.comons.model.domain.domain.ResultInfo;
+import com.imooc.comons.model.domain.dto.DinersDTO;
 import com.imooc.comons.model.domain.pojo.Diners;
 import com.imooc.comons.utils.AssertUtil;
 import com.imooc.comons.utils.ResultInfoUtil;
@@ -40,6 +43,48 @@ public class DinersService {
     private OAuth2ClientConfiguration oAuth2ClientConfiguration;
     @Resource
     private DinersMapper dinersMapper;
+    @Resource
+    private SendVerityCodeService sendVerityCodeService;
+
+
+    /**
+     * 用户注册
+     *
+     * @param dinersDTO
+     * @param path
+     * @return
+     */
+    public ResultInfo register(DinersDTO dinersDTO,String path){
+        // 参数非空校验
+        String username = dinersDTO.getUsername();
+        AssertUtil.isNotEmpty(username,"请输入验证码");
+        String password = dinersDTO.getPassword();
+        AssertUtil.isNotEmpty(password,"请输入验证码");
+        String phone = dinersDTO.getPhone();
+        AssertUtil.isNotEmpty(phone,"请输入验证码");
+        String verifyCode = dinersDTO.getVerifyCode();
+        AssertUtil.isNotEmpty(verifyCode,"请输入验证码");
+
+        // 获取验证码
+        String code = sendVerityCodeService.getCodeByPhone(phone);
+        // 验证码是否过期
+        AssertUtil.isNotEmpty(code,"验证码已过期,请重新发送");
+        // 验证码一致性校验
+        AssertUtil.isTrue(!dinersDTO.getVerifyCode().equals(code),"输入的验证码不一致，请重新输入");
+        // 验证用户名是否已注册
+        Diners diners = dinersMapper.selectByUseranme(username.trim());
+        AssertUtil.isTrue(diners != null ,"用户名已存在，请重新输入");
+
+        // 注册
+        // 密码加密
+        dinersDTO.setPassword(DigestUtil.md5Hex(password.trim()));
+        dinersMapper.save(dinersDTO);
+        // 自动登录
+        ResultInfo resultInfo = signIn(username.trim(), password.trim(), path.trim());
+        return resultInfo;
+
+    }
+
     /**
      * 校验手机号是否注册
      * @param phone

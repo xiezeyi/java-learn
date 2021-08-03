@@ -53,4 +53,11 @@ public class SendVerityCodeService {
         //有结果就返回false,就证明不用发送了，故true进入return
         return StrUtil.isBlank(code) ? true :false;
     }
+
+    public String getCodeByPhone(String phone) {
+        String key = RedisKeyConstant.verify_code.getKey() + phone;
+        return redisTemplate.opsForValue().get(key);
+    }
+
+
 }

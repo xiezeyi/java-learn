@@ -13,9 +13,9 @@ spring:
   # Redis
   redis:
     port: 6379
-    host: 192.168.10.101
+    host: 121.43.113.221
     timeout: 3000
-    password: 123456
+    password: xiezeyi
   # Swagger
   swagger:
     base-package: com.imooc.seckill

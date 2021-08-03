@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bac6bad-0a60-45df-a39e-0389ddffdb09" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java-lambda.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/java-lambda/com/xzy/javaSE8/javaSE8-lambda.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/java-lambda/com/xzy/javaSE8/语法/语法格式.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/xzy/javaSE8/javaSE8-lambda.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/xzy/javaSE8/y1语法/语法格式.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/xzy/javaSE8/y2自定义函数接口/ConsumerInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/xzy/javaSE8/y2自定义函数接口/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/xzy/javaSE8/y2自定义函数接口/自定义函数接口.java" afterDir="false" />
-    </list>
+    <list default="true" id="2bac6bad-0a60-45df-a39e-0389ddffdb09" name="Default Changelist" comment="feat: [java-&gt;java-lambda]系统学习一下lambda表达式" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,8 +73,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1627958635633</updated>
-      <workItem from="1627958637031" duration="3711000" />
+      <workItem from="1627958637031" duration="3756000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: [java-&gt;java-lambda]系统学习一下lambda表达式">
+      <created>1627969334296</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627969334296</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,5 +98,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: [java-&gt;java-lambda]系统学习一下lambda表达式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: [java-&gt;java-lambda]系统学习一下lambda表达式" />
   </component>
 </project>

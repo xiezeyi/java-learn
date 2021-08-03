@@ -9,6 +9,7 @@
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-gateway/ms-gateway.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-gateway/ms-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-oauth2-server/ms-oauth2-server.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-oauth2-server/ms-oauth2-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-registry/ms-registry.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-registry/ms-registry.iml" />
+      <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-seckill/ms-seckill.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-seckill/ms-seckill.iml" />
       <module fileurl="file://$PROJECT_DIR$/redis.iml" filepath="$PROJECT_DIR$/redis.iml" />
     </modules>
   </component>

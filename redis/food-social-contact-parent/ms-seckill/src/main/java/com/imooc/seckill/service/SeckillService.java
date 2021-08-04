@@ -42,6 +42,9 @@ public class SeckillService {
     @Resource
     private RestTemplate restTemplate;
 
+
+    @Resource
+    private RedisTemplate redisTemplate;
     /**
      * 抢购代金券
      *
@@ -120,23 +123,27 @@ public class SeckillService {
 
         // 注释原始的走 关系型数据库 的流程
         // 验证数据库中是否已经存在该券的秒杀活动
-         SeckillVouchers seckillVouchersFromDb = seckillVouchersMapper.selectVoucher(seckillVouchers.getFkVoucherId());
-         AssertUtil.isTrue(seckillVouchersFromDb != null, "该券已经拥有了抢购活动");
+        // SeckillVouchers seckillVouchersFromDb = seckillVouchersMapper.selectVoucher(seckillVouchers.getFkVoucherId());
+        // AssertUtil.isTrue(seckillVouchersFromDb != null, "该券已经拥有了抢购活动");
         // 插入数据库
-         seckillVouchersMapper.save(seckillVouchers);
+        // seckillVouchersMapper.save(seckillVouchers);
 //
 //        // 采用 Redis 实现
-//        String key = RedisKeyConstant.seckill_vouchers.getKey() +
-//                seckillVouchers.getFkVoucherId();
+        String key = RedisKeyConstant.seckill_vouchers.getKey() +
+                seckillVouchers.getFkVoucherId();
 //        // 验证 Redis 中是否已经存在该券的秒杀活动
-//        Map<String, Object> map = redisTemplate.opsForHash().entries(key);
-//        AssertUtil.isTrue(!map.isEmpty() && (int) map.get("amount") > 0, "该券已经拥有了抢购活动");
+            //为什么要返回哈希？？？？？？？？？？？
+            //1-用string要先将返回的值序列化成一个对象，然后从对象里拿到这个属性操作，操作完再反序列化回去
+            //使用哈希可以非常方便的拿到库存的字段，直接进行操作
+            //2-哈希在redis进行存储时不会进行序列化和反序列化的，会提高性能
+        Map<String, Object> map = redisTemplate.opsForHash().entries(key);
+        AssertUtil.isTrue(!map.isEmpty() && (int) map.get("amount") > 0, "该券已经拥有了抢购活动");
 //
 //        // 插入 Redis
-//        seckillVouchers.setIsValid(1);
-//        seckillVouchers.setCreateDate(now);
-//        seckillVouchers.setUpdateDate(now);
-//        redisTemplate.opsForHash().putAll(key, BeanUtil.beanToMap(seckillVouchers));
+        seckillVouchers.setIsValid(1);
+        seckillVouchers.setCreateDate(now);
+        seckillVouchers.setUpdateDate(now);
+        redisTemplate.opsForHash().putAll(key, BeanUtil.beanToMap(seckillVouchers));
     }
 
 }

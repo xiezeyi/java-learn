@@ -44,6 +44,7 @@ public class RedisTemplateConfiguration {
         return redisTemplate;
     }
 
+    //配置lua脚本
     @Bean
     public DefaultRedisScript<Long> stockScript() {
         DefaultRedisScript<Long> redisScript = new DefaultRedisScript<>();

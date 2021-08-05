@@ -24,6 +24,7 @@ import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -45,6 +46,9 @@ public class SeckillService {
 
     @Resource
     private RedisTemplate redisTemplate;
+
+    @Resource
+    private DefaultRedisScript defaultRedisScript;
     /**
      * 抢购代金券
      *
@@ -99,11 +103,6 @@ public class SeckillService {
         // int count = seckillVouchersMapper.stockDecrease(seckillVouchers.getId());
         // AssertUtil.isTrue(count == 0, "该券已经卖完了");
 
-        // 采用redis
-        // 扣库存
-        long count = redisTemplate.opsForHash().increment(key, "amount", -1);
-        AssertUtil.isTrue(count <= 0,"该卷已经卖完了");
-
 
         // 下单
         VoucherOrders voucherOrders = new VoucherOrders();
@@ -115,8 +114,21 @@ public class SeckillService {
         voucherOrders.setOrderNo(orderNo);
         voucherOrders.setOrderType(1);
         voucherOrders.setStatus(0);
-        count = voucherOrdersMapper.save(voucherOrders);
+        long count = voucherOrdersMapper.save(voucherOrders);
         AssertUtil.isTrue(count == 0, "用户抢购失败");
+
+        // 采用redis
+        // 扣库存
+        // count = redisTemplate.opsForHash().increment(key, "amount", -1);
+        // AssertUtil.isTrue(count <= 0,"该卷已经卖完了");
+
+        // 采用redis + lua 扣库存
+        // 扣库存
+        ArrayList<String> keys = new ArrayList<>();
+        keys.add(key);
+        keys.add("amount");
+        Long amount = (Long) redisTemplate.execute(defaultRedisScript, keys);
+        AssertUtil.isTrue(amount == null || amount<1,"改卷已经卖完了");
 
         return ResultInfoUtil.buildSuccess(path, "抢购成功");
     }

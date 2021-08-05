@@ -58,11 +58,20 @@ public class SeckillService {
         AssertUtil.isTrue(voucherId == null || voucherId < 0, "请选择需要抢购的代金券");
         AssertUtil.isNotEmpty(accessToken, "请登录");
 
+        // 注释原始的 关系型数据库 的流程
         // 判断此代金券是否加入抢购
-         SeckillVouchers seckillVouchers = seckillVouchersMapper.selectVoucher(voucherId);
-         AssertUtil.isTrue(seckillVouchers == null, "该代金券并未有抢购活动");
+        // SeckillVouchers seckillVouchers = seckillVouchersMapper.selectVoucher(voucherId);
+        // AssertUtil.isTrue(seckillVouchers == null, "该代金券并未有抢购活动");
         // 判断是否有效
-         AssertUtil.isTrue(seckillVouchers.getIsValid() == 0, "该活动已结束");
+        // AssertUtil.isTrue(seckillVouchers.getIsValid() == 0, "该活动已结束");
+
+
+        // 采用Redis
+        String key = RedisKeyConstant.seckill_vouchers.getKey() + voucherId;
+        Map<String,Object> map = redisTemplate.opsForHash().entries(key);
+        SeckillVouchers seckillVouchers = BeanUtil.mapToBean(map, SeckillVouchers.class, true, null);
+
+
         // 判断是否开始、结束
         Date now = new Date();
         AssertUtil.isTrue(now.before(seckillVouchers.getStartTime()), "该抢购还未开始");
@@ -84,14 +93,23 @@ public class SeckillService {
                 seckillVouchers.getFkVoucherId());
         AssertUtil.isTrue(order != null, "该用户已抢到该代金券，无需再抢");
 
+
+        // 注释原始的 关系型数据库 的流程
         // 扣库存
-         int count = seckillVouchersMapper.stockDecrease(seckillVouchers.getId());
-         AssertUtil.isTrue(count == 0, "该券已经卖完了");
+        // int count = seckillVouchersMapper.stockDecrease(seckillVouchers.getId());
+        // AssertUtil.isTrue(count == 0, "该券已经卖完了");
+
+        // 采用redis
+        // 扣库存
+        long count = redisTemplate.opsForHash().increment(key, "amount", -1);
+        AssertUtil.isTrue(count <= 0,"该卷已经卖完了");
+
 
         // 下单
         VoucherOrders voucherOrders = new VoucherOrders();
         voucherOrders.setFkDinerId(dinerInfo.getId());
-         voucherOrders.setFkSeckillId(seckillVouchers.getId());
+        // redis中不需要维护外键信息
+//         voucherOrders.setFkSeckillId(seckillVouchers.getId());
         voucherOrders.setFkVoucherId(seckillVouchers.getFkVoucherId());
         String orderNo = IdUtil.getSnowflake(1, 1).nextIdStr();
         voucherOrders.setOrderNo(orderNo);

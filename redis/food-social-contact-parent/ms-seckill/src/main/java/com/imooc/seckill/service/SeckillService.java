@@ -119,7 +119,7 @@ public class SeckillService {
 
         // 采用redis
         // 扣库存
-        // count = redisTemplate.opsForHash().increment(key, "amount", -1);
+        // count = red isTemplate.opsForHash().increment(key, "amount", -1);
         // AssertUtil.isTrue(count <= 0,"该卷已经卖完了");
 
         // 采用redis + lua 扣库存

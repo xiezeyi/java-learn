@@ -1,5 +1,6 @@
 package com.imooc.reentrant;
 
+// 不可重入 会导致死锁
 public class UnReentrantLockDemo {
 
     private int count = 0;

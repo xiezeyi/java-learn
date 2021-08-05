@@ -1,5 +1,8 @@
 package com.imooc.reentrant;
 
+/**
+ * 可重入的效果
+ */
 public class ReentrantLockDemo {
 
     private int count = 0;

@@ -20,6 +20,9 @@ public class RedisLock {
     public static boolean tryLock(Jedis jedis, String lockKey,
                                   String value, int expireTime) {
         // 自旋锁
+            // 理解：一个线程进来后，在redis里设置了一个锁,返回ok，该锁设置成功，return true，跳出该代码块
+                //在第一个线程未将该锁del或该锁未过期时，第二个线程进来后只会返回设置失败,无法return true,故
+                //进行第二次循环，直到第一个线程将锁释放后，其它线程再竞争该锁
         while (true) {
             // set key value ex seconds nx(只有键不存在的时候才会设置key)
             String result = jedis.set(lockKey, value,

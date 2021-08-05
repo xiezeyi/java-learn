@@ -13,6 +13,8 @@ public class RedisLockTest {
 
     private void call(Jedis jedis) {
         // 加锁
+            // 传入 jedis对象 lockkey 失效时间    传值是为了向redis中设置一个有过期时间的锁
+            // UUID没什么作用，只是要赋予key一个值，让客户端设置进去后其他人就不能再设置了，除非删了这个锁
         boolean locked = RedisLock.tryLock(jedis, lockKey,
                 UUID.randomUUID().toString(), 60);
         try {
@@ -29,7 +31,10 @@ public class RedisLockTest {
     }
 
     /**
-     *
+     * new一个对象，初始化JedisPool
+     * 创建两个线程
+     * 执行
+     * join指执行完后去执行sout的操作
      * @param args
      * @throws Exception
      */
@@ -39,7 +44,7 @@ public class RedisLockTest {
         jedisPoolConfig.setMinIdle(1);
         jedisPoolConfig.setMaxTotal(5);
         JedisPool jedisPool = new JedisPool(jedisPoolConfig,
-                "192.168.10.101", 6379, 1000, "123456");
+                "121.43.113.221", 6379, 1000, "xiezeyi");
 
         Thread t1 = new Thread(() -> redisLockTest.call(jedisPool.getResource()));
         Thread t2 = new Thread(() -> redisLockTest.call(jedisPool.getResource()));

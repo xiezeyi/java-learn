@@ -7,6 +7,7 @@ import com.imooc.comons.constant.ApiConstant;
 import com.imooc.comons.model.domain.domain.ResultInfo;
 import com.imooc.comons.model.domain.dto.DinersDTO;
 import com.imooc.comons.model.domain.pojo.Diners;
+import com.imooc.comons.model.domain.vo.ShortDinerInfo;
 import com.imooc.comons.utils.AssertUtil;
 import com.imooc.comons.utils.ResultInfoUtil;
 import com.imooc.diners.config.OAuth2ClientConfiguration;
@@ -25,6 +26,7 @@ import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 /**
  * @program: redis
@@ -46,6 +48,19 @@ public class DinersService {
     @Resource
     private SendVerityCodeService sendVerityCodeService;
 
+
+    /**
+     * 根据 ids 查询食客信息
+     *
+     * @param ids 主键 id，多个以逗号分隔，逗号之间不用空格
+     * @return
+     */
+    public List<ShortDinerInfo> findByIds(String ids) {
+        AssertUtil.isNotEmpty(ids);
+        String[] idArr = ids.split(",");
+        List<ShortDinerInfo> dinerInfos = dinersMapper.findByIds(idArr);
+        return dinerInfos;
+    }
 
     /**
      * 用户注册

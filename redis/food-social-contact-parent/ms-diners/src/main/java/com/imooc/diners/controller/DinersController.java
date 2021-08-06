@@ -2,6 +2,7 @@ package com.imooc.diners.controller;
 
 import com.imooc.comons.model.domain.domain.ResultInfo;
 import com.imooc.comons.model.domain.dto.DinersDTO;
+import com.imooc.comons.model.domain.vo.ShortDinerInfo;
 import com.imooc.comons.utils.ResultInfoUtil;
 import com.imooc.diners.service.DinersService;
 import io.swagger.annotations.Api;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @program: redis
@@ -32,6 +34,18 @@ public class DinersController {
     @PostMapping("register")
     public ResultInfo register(@RequestBody DinersDTO dinersDTO){
         return dinersService.register(dinersDTO, request.getServletPath());
+    }
+
+    /**
+     * 根据 ids 查询食客信息
+     *
+     * @param ids
+     * @return
+     */
+    @GetMapping("findByIds")
+    public ResultInfo<List<ShortDinerInfo>> findByIds(String ids) {
+        List<ShortDinerInfo> dinerInfos = dinersService.findByIds(ids);
+        return ResultInfoUtil.buildSuccess(request.getServletPath(), dinerInfos);
     }
     /**
      * 校验手机号是否已注册

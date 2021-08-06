@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/commons/commons.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/commons/commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/food-social-contact-parent.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/food-social-contact-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-diners/ms-diners.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-diners/ms-diners.iml" />
+      <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-follow/ms-follow.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-follow/ms-follow.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-gateway/ms-gateway.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-gateway/ms-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-oauth2-server/ms-oauth2-server.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-oauth2-server/ms-oauth2-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/food-social-contact-parent/ms-registry/ms-registry.iml" filepath="$PROJECT_DIR$/food-social-contact-parent/ms-registry/ms-registry.iml" />

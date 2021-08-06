@@ -10,6 +10,7 @@
         <module name="02springdata-demo" />
         <module name="ms-registry" />
         <module name="ms-diners" />
+        <module name="ms-follow" />
         <module name="ms-oauth2-server" />
         <module name="ms-seckill" />
         <module name="commons" />
@@ -21,6 +22,7 @@
       <module name="commons" target="8" />
       <module name="food-social-contact-parent" target="8" />
       <module name="ms-diners" target="8" />
+      <module name="ms-follow" target="8" />
       <module name="ms-gateway" target="8" />
       <module name="ms-oauth2-server" target="8" />
       <module name="ms-registry" target="8" />

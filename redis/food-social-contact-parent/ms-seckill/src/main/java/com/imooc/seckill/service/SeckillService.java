@@ -36,8 +36,8 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class SeckillService {
 
-    @Resource
-    private SeckillVouchersMapper seckillVouchersMapper;
+//    @Resource
+//    private SeckillVouchersMapper seckillVouchersMapper;
     @Resource
     private VoucherOrdersMapper voucherOrdersMapper;
     @Value("${service.name.ms-oauth-server}")

@@ -24,5 +24,13 @@ public class test {
 
         LocalDateTime localDateTime2 = DateUtil.parseLocalDateTime(localDate1.toString() + " 23:59:59");
         System.out.println("localDateTime2 = " + localDateTime2);
+        LocalDateTime localDateTime3 = localDate1.atStartOfDay();
+        System.out.println("localDateTime3 = " + localDateTime3);
+        LocalDateTime localDateTime4 = DateUtil.parseLocalDateTime(localDate1.toString() + " 23:59:59");
+        System.out.println("localDateTime4 = " + localDateTime4);
+
+        System.out.println("DateUtil.formatLocalDateTime(localDateTime3) = " + DateUtil.formatLocalDateTime(localDateTime3));
+
+        System.out.println("DateUtil.formatLocalDateTime(localDateTime4) = " + DateUtil.formatLocalDateTime(localDateTime4));
     }
 }

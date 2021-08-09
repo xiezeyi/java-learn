@@ -13,6 +13,7 @@
         <module name="ms-follow" />
         <module name="ms-oauth2-server" />
         <module name="ms-seckill" />
+        <module name="ms-feeds" />
         <module name="commons" />
         <module name="ms-gateway" />
       </profile>
@@ -22,6 +23,7 @@
       <module name="commons" target="8" />
       <module name="food-social-contact-parent" target="8" />
       <module name="ms-diners" target="8" />
+      <module name="ms-feeds" target="8" />
       <module name="ms-follow" target="8" />
       <module name="ms-gateway" target="8" />
       <module name="ms-oauth2-server" target="8" />

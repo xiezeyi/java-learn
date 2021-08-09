@@ -13,7 +13,7 @@ spring:
   # Redis
   redis:
     port: 6379
-      host: 121.43.113.221
+    host: 121.43.113.221
     timeout: 3000
     password: xiezeyi
     database: 2

@@ -19,7 +19,7 @@ spring:
   # Swagger
   swagger:
     base-package: com.imooc.follow
-    title: 慕课美食社交食客API接口文档
+    title: 美食社交食客API接口文档
 
 # 配置 Eureka Server 注册中心
 eureka:

@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="02springdata-demo" />
         <module name="ms-registry" />
+        <module name="ms-points" />
         <module name="ms-diners" />
         <module name="ms-follow" />
         <module name="ms-oauth2-server" />
@@ -27,6 +28,7 @@
       <module name="ms-follow" target="8" />
       <module name="ms-gateway" target="8" />
       <module name="ms-oauth2-server" target="8" />
+      <module name="ms-points" target="8" />
       <module name="ms-registry" target="8" />
       <module name="ms-seckill" target="8" />
     </bytecodeTargetLevel>

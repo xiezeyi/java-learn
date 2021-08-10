@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2bac6bad-0a60-45df-a39e-0389ddffdb09" name="Default Changelist" comment="feat: [java-&gt;java-lambda]系统学习一下lambda表达式" />
+    <list default="true" id="2bac6bad-0a60-45df-a39e-0389ddffdb09" name="Default Changelist" comment="feat: [java-&gt;java-lambda]系统学习一下lambda表达式">
+      <change afterPath="$PROJECT_DIR$/../../javacourse/javaseniorarchitect/01javabase/01javabase.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/commons/src/main/java/com/imooc/comons/constant/PointTypesConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/commons/src/main/java/com/imooc/comons/model/domain/pojo/DinerPoints.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/ms-points.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/PointsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/config/RedisTemplateConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/config/RestTemplateConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/controller/DinerPointsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/mapper/DinerPointsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/java/com/imooc/points/service/DinerPointsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/test/java/com/imooc/points/PointsApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-points/src/test/java/com/imooc/points/controller/DinerPointsControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-diners/src/main/java/com/imooc/diners/service/SignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-diners/src/main/java/com/imooc/diners/service/SignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-diners/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/ms-diners/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../redis/food-social-contact-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../redis/food-social-contact-parent/pom.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,22 +71,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.y1语法格式" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -74,6 +94,7 @@
       <option name="presentableId" value="Default" />
       <updated>1627958635633</updated>
       <workItem from="1627958637031" duration="3756000" />
+      <workItem from="1628585623605" duration="1219000" />
     </task>
     <task id="LOCAL-00001" summary="feat: [java-&gt;java-lambda]系统学习一下lambda表达式">
       <created>1627969334296</created>
@@ -98,6 +119,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: [java-&gt;java-lambda]系统学习一下lambda表达式" />
